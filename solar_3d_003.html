@@ -5468,6 +5468,16 @@
 
         // 处理鼠标点击事件
         function onMouseClick(event) {
+            // 检查是否点击的是控件区域（滑动条、按钮等）
+            const target = event.target;
+            if (target.tagName === 'INPUT' || 
+                target.tagName === 'BUTTON' || 
+                target.closest('.controls') || 
+                target.closest('.navigation-panel') ||
+                target.closest('.planet-info')) {
+                return; // 点击控件时不处理
+            }
+
             // 计算鼠标位置
             const mouse = new THREE.Vector2();
             mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
@@ -6474,10 +6484,11 @@
                     name: data.name,
                     radius: 3,
                     type: 'comet',
-                    distance: (perihelion + aphelion) / 2,
+                    realDistance: `${data.perihelion}-${data.aphelion} AU`,
                     orbitPeriod: `${data.period}年`,
                     rotationPeriod: '12小时',
                     temperature: '表面: -100°C',
+                    moons: '0',
                     atmosphere: '冰, 尘埃',
                     realDiameter: '10公里'
                 });
@@ -7254,6 +7265,19 @@
             cameraMoveSpeed = 0.05;
             updateNavActiveItem('太阳');
             navigationPanel.style.display = 'none';
+            
+            // 显示太阳信息面板
+            const sunInfo = {
+                name: '太阳',
+                realDiameter: '1,392,700公里',
+                realDistance: '0 (太阳系中心)',
+                orbitPeriod: '2.5亿年 (绕银河系中心)',
+                rotationPeriod: '25.4天',
+                temperature: '表面: 5,500°C, 核心: 15,000,000°C',
+                moons: '8 (行星)',
+                atmosphere: '氢气, 氦气'
+            };
+            showPlanetInfo(sunInfo);
             updateDebugInfo('已设置追踪目标: 太阳');
         }
 
@@ -7267,6 +7291,7 @@
                 cameraMoveSpeed = 0.05;
                 updateNavActiveItem(name);
                 navigationPanel.style.display = 'none';
+                showPlanetInfo(planet);
                 updateDebugInfo(`已设置追踪目标: ${name}`);
             }
         }
@@ -7286,6 +7311,19 @@
                 cameraMoveSpeed = 0.05;
                 updateNavActiveItem('月球');
                 navigationPanel.style.display = 'none';
+                
+                // 显示月球信息
+                const moonInfo = {
+                    name: '月球',
+                    realDiameter: '3,474公里',
+                    realDistance: '38.4万公里 (与地球)',
+                    orbitPeriod: '27.3天',
+                    rotationPeriod: '27.3天',
+                    temperature: '100°C / -173°C',
+                    moons: '0',
+                    atmosphere: '几乎没有'
+                };
+                showPlanetInfo(moonInfo);
                 updateDebugInfo('已设置追踪目标: 月球');
             }
         }
@@ -7305,6 +7343,19 @@
                 cameraMoveSpeed = 0.05;
                 updateNavActiveItem('卡戎');
                 navigationPanel.style.display = 'none';
+                
+                // 显示卡戎信息
+                const charonInfo = {
+                    name: '卡戎',
+                    realDiameter: '1,212公里',
+                    realDistance: '19,640公里 (与冥王星)',
+                    orbitPeriod: '6.4天',
+                    rotationPeriod: '6.4天 (潮汐锁定)',
+                    temperature: '-230°C / -220°C',
+                    moons: '0',
+                    atmosphere: '几乎没有'
+                };
+                showPlanetInfo(charonInfo);
                 updateDebugInfo('已设置追踪目标: 卡戎');
             }
         }
@@ -7323,6 +7374,7 @@
                 cameraMoveSpeed = 0.05;
                 updateNavActiveItem(name);
                 navigationPanel.style.display = 'none';
+                showPlanetInfo(comet);
                 updateDebugInfo(`已设置追踪目标: ${name}`);
             }
         }
