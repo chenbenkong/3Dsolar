@@ -87,7 +87,7 @@ export function createPlanets(solarSystem) {
 function createJupiterMaterial() {
   const loader = new THREE.TextureLoader();
   // 使用用户提供的木星贴图
-  const jupiterTexture = loader.load('https://pic.82314912.xyz/api/cfile/AgACAgEAAyEGAATEcCnBAAIRNmm09fX2VBwAATfoW74p_-lkCnTuOAACmAtrGzRSqEW-wwsEjvJKOgEAAwIAA3cAAzoE');
+  const jupiterTexture = loader.load(import.meta.env.BASE_URL + 'textures/jupiter.jpg');
   
   return new THREE.MeshPhongMaterial({
     map: jupiterTexture,
@@ -101,7 +101,7 @@ function createJupiterMaterial() {
 function createSaturnMaterial() {
   const loader = new THREE.TextureLoader();
   // 使用用户提供的土星贴图
-  const saturnTexture = loader.load('https://pic.82314912.xyz/api/cfile/AgACAgEAAyEGAATEcCnBAAIROWm0-B1O_VsY3boud4IR5V4bTT0xAAKbC2sbNFKoRd3zVPvXLlHbAQADAgADdwADOgQ');
+  const saturnTexture = loader.load(import.meta.env.BASE_URL + 'textures/saturn.jpg');
   
   return new THREE.MeshPhongMaterial({
     map: saturnTexture,
@@ -114,9 +114,9 @@ function createSaturnMaterial() {
 
 function createEarthMaterial() {
   const loader = new THREE.TextureLoader();
-  const earthTexture = loader.load('https://cdn.jsdelivr.net/gh/mrdoob/three.js@dev/examples/textures/planets/earth_atmos_2048.jpg');
-  const normalTexture = loader.load('https://cdn.jsdelivr.net/gh/mrdoob/three.js@dev/examples/textures/planets/earth_normal_2048.jpg');
-  const specularTexture = loader.load('https://cdn.jsdelivr.net/gh/mrdoob/three.js@dev/examples/textures/planets/earth_specular_2048.jpg');
+  const earthTexture = loader.load(import.meta.env.BASE_URL + 'textures/earth.jpg');
+  const normalTexture = loader.load(import.meta.env.BASE_URL + 'textures/earth_normal.jpg');
+  const specularTexture = loader.load(import.meta.env.BASE_URL + 'textures/earth_specular.jpg');
   
   return new THREE.MeshPhongMaterial({
     map: earthTexture,
@@ -133,7 +133,7 @@ function createEarthMaterial() {
 function createMarsMaterial() {
   const loader = new THREE.TextureLoader();
   // 使用用户提供的火星贴图
-  const marsTexture = loader.load('https://pic.82314912.xyz/api/cfile/AgACAgEAAyEGAATEcCnBAAIROGm098pzVH5S3oHjAAFISQtwC7hPJAACmgtrGzRSqEWW6vjKkHfDzgEAAwIAA3cAAzoE');
+  const marsTexture = loader.load(import.meta.env.BASE_URL + 'textures/mars.jpg');
   
   return new THREE.MeshPhongMaterial({
     map: marsTexture,
@@ -147,7 +147,7 @@ function createMarsMaterial() {
 function createVenusMaterial() {
   const loader = new THREE.TextureLoader();
   // 使用用户提供的金星贴图
-  const venusTexture = loader.load('https://pic.82314912.xyz/api/cfile/AgACAgEAAyEGAATEcCnBAAIRNGm09OuoDdIWbaQPEsrlB2XMhvuCAAKWC2sbNFKoRRv_eSKFETQaAQADAgADdwADOgQ');
+  const venusTexture = loader.load(import.meta.env.BASE_URL + 'textures/venus.jpg');
   
   return new THREE.MeshPhongMaterial({
     map: venusTexture,
@@ -161,7 +161,7 @@ function createVenusMaterial() {
 function createMercuryMaterial() {
   const loader = new THREE.TextureLoader();
   // 使用用户提供的水星贴图
-  const mercuryTexture = loader.load('https://pic.82314912.xyz/api/cfile/AgACAgEAAyEGAATEcCnBAAIRM2m09FcbWM59LtHdMx9s-igf1sPcAAKVC2sbNFKoRbjbx7-nWBBdAQADAgADdwADOgQ');
+  const mercuryTexture = loader.load(import.meta.env.BASE_URL + 'textures/mercury.jpg');
   
   return new THREE.MeshPhongMaterial({
     map: mercuryTexture,
@@ -175,7 +175,7 @@ function createMercuryMaterial() {
 function createUranusMaterial() {
   const loader = new THREE.TextureLoader();
   // 使用用户提供的天王星贴图
-  const uranusTexture = loader.load('https://pic.82314912.xyz/api/cfile/AgACAgEAAyEGAATEcCnBAAIRPWm0-SNKQTtz2ftuFmp7lU6bf6Z7AAKfC2sbNFKoRQaBydqfg6INAQADAgADdwADOgQ');
+  const uranusTexture = loader.load(import.meta.env.BASE_URL + 'textures/uranus.jpg');
   
   return new THREE.MeshPhongMaterial({
     map: uranusTexture,
@@ -189,7 +189,7 @@ function createUranusMaterial() {
 function createNeptuneMaterial() {
   const loader = new THREE.TextureLoader();
   // 使用用户提供的海王星贴图
-  const neptuneTexture = loader.load('https://pic.82314912.xyz/api/cfile/AgACAgEAAyEGAATEcCnBAAIRPmm0-X8CSe8QnHhtUP7ecb4WEvIdAAKgC2sbNFKoRQvcOV4DGSJDAQADAgADdwADOgQ');
+  const neptuneTexture = loader.load(import.meta.env.BASE_URL + 'textures/neptune.jpg');
   
   return new THREE.MeshPhongMaterial({
     map: neptuneTexture,
@@ -203,7 +203,7 @@ function createNeptuneMaterial() {
 function createPlutoMaterial() {
   const loader = new THREE.TextureLoader();
   // 使用用户提供的冥王星贴图
-  const plutoTexture = loader.load('https://pic.82314912.xyz/api/cfile/AgACAgEAAyEGAATEcCnBAAIRP2m0-lCP2EfITnNSGVCrX72fTuXCAAKhC2sbNFKoRe5GySvzF_JRAQADAgADdwADOgQ');
+  const plutoTexture = loader.load(import.meta.env.BASE_URL + 'textures/pluto.jpg');
   
   return new THREE.MeshPhongMaterial({
     map: plutoTexture,

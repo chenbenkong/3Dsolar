@@ -5,7 +5,7 @@ export function createMoon(planetRadius) {
   
   // 使用用户提供的月球贴图
   const textureLoader = new THREE.TextureLoader();
-  const moonTexture = textureLoader.load('https://pic.82314912.xyz/api/cfile/AgACAgEAAyEGAATEcCnBAAIRMmm08HRxz6YJUNnuzgFoIIXbs9XiAAKUC2sbNFKoRWH931Yr_qNpAQADAgADdwADOgQ');
+  const moonTexture = textureLoader.load(import.meta.env.BASE_URL + 'textures/moon.jpg');
   
   const moonMaterial = new THREE.MeshPhongMaterial({
     map: moonTexture,

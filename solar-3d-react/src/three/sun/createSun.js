@@ -9,7 +9,7 @@ export function createSun() {
   
   // 使用用户提供的太阳贴图
   const textureLoader = new THREE.TextureLoader();
-  const sunTexture = textureLoader.load('https://pic.82314912.xyz/api/cfile/AgACAgEAAyEGAATEcCnBAAIRIWm0jT5a-EeCfimaPr9NzYP3govqAAKuC2sbNFKgRZ6M9gXnWGZhAQADAgADdwADOgQ');
+  const sunTexture = textureLoader.load(import.meta.env.BASE_URL + 'textures/sun.jpg');
   
   const sunMaterial = new THREE.MeshBasicMaterial({
     map: sunTexture,
